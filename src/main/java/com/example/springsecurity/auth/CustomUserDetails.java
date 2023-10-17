@@ -30,6 +30,8 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> userAuthorities = new ArrayList<>();
+
+        // user.getRole()을 반환하는 GrantedAuthority의 구현체를 생성하는것을 의미한다.
         userAuthorities.add((GrantedAuthority) () -> user.getRole());
 
         return userAuthorities;
